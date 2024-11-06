@@ -4,6 +4,8 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Food {
@@ -16,6 +18,9 @@ public class Food {
     private double protein;
     private double carbs;
     private double fats;
+
+    @OneToMany(mappedBy = "food")
+    private List<FoodFact> facts;
 
     public Long getId() {
         return id;
